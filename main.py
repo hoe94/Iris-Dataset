@@ -10,7 +10,7 @@ import pickle
 import sklearn
 
 app = Flask(__name__)
-model = pickle.load(open('C:/Users/Hoe/Desktop/Learning/Python/My Accomplishment/Iris Dataset/RandomForestClassifier.pkl','rb'))
+model = pickle.load(open('C:/Users/Hoe/Desktop/Learning/Python/My Accomplishment/2. Iris Dataset/RandomForestClassifier.pkl','rb'))
 
 @app.route('/',methods = ['GET'])
 def Home():
@@ -23,14 +23,20 @@ def predict():
         sepal_width = float(request.form['sepal_width'])
         petal_length = float(request.form['petal_length'])
         petal_width = float(request.form['petal_width'])
+        task = [sepal_length,sepal_width,petal_length,petal_width]
         prediction = model.predict([[sepal_length,sepal_width,petal_length,petal_width]])
+        
+       
         #prediction_texts = 'The output is {}'.format(prediction[0])
         if prediction == 0:
-            return render_template('index.html',prediction_texts = "This iris is belongs to Setosa (0)")
+            prediction_texts = "This iris is belongs to Setosa (0)"
+            return render_template('result.html',task = task, prediction_texts = prediction_texts, prediction = prediction)
         elif prediction == 1:
-            return render_template('index.html',prediction_texts = "This iris is belongs to Versicolour (1)")
+            prediction_texts = "This iris is belongs to Versicolour (1)"
+            return render_template('result.html',task = task, prediction_texts = prediction_texts, prediction = prediction)
         else:
-            return render_template('index.html',prediction_texts = "This iris is belongs to Virginica (2)")
+            prediction_texts = "This iris is belongs to Virginica (2)"
+            return render_template('result.html',task = task, prediction_texts = prediction_texts, prediction = prediction)
     else:
         return render_template('index.html')
         #print('Error Msg')

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+  <!--<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>-->
+</head>
+
+<body>
+ <div class="content">
+	<h1>Iris Predictor</h1>
+    
+	<table>
+	   <tr>
+	     <td style="font-size:30px">Sepal_length</td>
+	     <td style="font-size:30px">Sepal_width</td>
+	     <td style="font-size:30px">Petal_length</td>
+	     <td style="font-size:30px">Petal_width</td>
+	     <td style="font-size:30px">Result</td>
+	   
+	   </tr>
+	   
+	   <tr>
+	       {% for task in task %}
+            <td style="font-size:20px">{{ task }}</td>
+           {% endfor %}
+             <td style="font-size:20px">{{ prediction }}</td>
+	   </tr>
+	</table>
+	
+	<br><br><h4 style="font-size:30px">{{prediction_texts}}</h4>
+
+ </div>
+
+<div class="footer">
+   <div class="content">
+    <a href = "https://github.com/hoe94">GitHub</a>
+    <a href = "https://www.linkedin.com/in/ericlowkimhoe/">Linkedin</a> <br>
+    <p>Credit by Low Kim Hoe, July 2020</p>
+   </div>
+ </div>
+
+</body>
+
+
+</html>
