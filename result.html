@@ -1,0 +1,23 @@
+ {% extends "layout.html" %}
+ {% block content %}
+	<table>
+	   <tr>
+	     <td style="font-size:30px">Sepal_length</td>
+	     <td style="font-size:30px">Sepal_width</td>
+	     <td style="font-size:30px">Petal_length</td>
+	     <td style="font-size:30px">Petal_width</td>
+	     <td style="font-size:30px">Result</td>
+	   
+	   </tr>
+	   
+	   <tr>
+	       {% for task in task %}
+            <td style="font-size:20px">{{ task }}</td>
+           {% endfor %}
+             <td style="font-size:20px">{{ prediction }}</td>
+	   </tr>
+	</table>
+	
+	<br><br><h4 style="font-size:30px">{{prediction_texts}}</h4>
+{%endblock content %}
+

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content%}
+    
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+    	<p>Please enter the information</p>
+		<p class="input">Sepal_length :</p><input id = "first" name="sepal_length" required="required" type="float " />
+		<p class="input">Sepal_width :</p><input id = "second" name="sepal_width" required="required" type="float " />
+		<p class="input">Petal_length :</p><input id = "third" name="petal_length" required="required" type="float "/>
+		<p class="input">Petal_width :</p><input id = "forth" name="petal_width" required="required" type="float "/>
+
+
+        <br><br><button id = "btn" class= "button" type="submit">Predict</button>
+    </form>
+	<br><br>
+
+{% endblock content %}
